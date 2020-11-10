@@ -1,25 +1,23 @@
 # Interview
 
-1. Your mission is to print model results based on the stock exchange quotes and the calculation you apply on them.
- 1.1 First You need to get quotes from stock exchange provider - look at the nasdaq.py(first you need to connect, after that you need to supply
-     to the receive_quotes func the delegate where you want the quotes to be going. in order to start receiving quotes, you need
-     to call the func start
- 1.2 implement handle_quotes_data in trader.py:
-     when you receive 10 quotes from each of the provided symbols(AMZN,FB for example)
-     you need to call the func calc in order to receive a calculation for the aggregated data.
-     currently all the quote symbols are coming one after another but it can happen that you'll receive 10 quotes from AMZN and from FB only 8
-     so you need to wait until you receive another two from FB before calling calc.
+1. Your mission is to print model results based on the stock exchange symbol quotes and the calculation you apply on them. <br/><br/>
+ 1.1 nasdaq.py(Already Implemented) - The script responsible for connecting to stock exchange and handle the received symbol quotes <br/><br/>
+ 1.2 trader.py(Need to implement handle_symbol_quote):
+     when you receive 10 seconds, starting from {current_time_seconds} % 10 = 0 from each of the provided symbols(AMZN,FB for example)
+     you need to call the func calc in order to receive a calculation for the aggregated symbol ticks(you need to have at least two ticks).
      After you receive the calculated data you need to call the model(model.py) to make a prediction based on the calc data.
-     The results of the model are: which of the symbols to buy(you should buy immediately) and seconds to wait before you sell the symbol.
+     The results of the model are: is to buy the symbol now and if the decision was to buy so how much seconds to wait until you sell.
      buy/sell functions are in trader.py
 
-please notice that most of the functions are implemented but you need to call them.
-You should implement func handle_quotes_data in trader.py and the main function in __init__.py
-when you test all your implementation, please execute it at least 5 min to see it's stable.
-Another important thing is that you should make model prediction as fast as you can, the prediction shouldn't
-take more than 0.5 sec after the last received quote
-supply your solution by email to michael@emporus.com or if you have any other questions feel free to ask via the email.
+    1.3 please notice that most of the functions are implemented but you need to call them.
+    You should implement func handle_symbol_quote in trader.py and the main function in __init__.py
+    when you test all your implementation, please execute it at least 5 min to see it's stable.
+    Another important thing is that you should make model prediction as fast as you can, the prediction shouldn't
+    take more than 0.5 sec after the last received quote
+    supply your solution to your git repo and send the link to michael@emporus.com
 
-2. wrap you logic with rest API - asyncio so it will return the current gain which in trader.py
+2. wrap you logic with rest API so it will return the current gain which in trader.py
 3. create unit tests with mocks to trader.py
-4. create decorator to print the time it took some method to execute
+4. create decorator to print the time it took the method above to execute
+5. The most important thing is performance
+6. The symbols for the test will be AMZN, FB

@@ -1,6 +1,7 @@
 import random
 import time
 import datetime as dt
+from typing import List
 
 
 class StockExchangeProvider:

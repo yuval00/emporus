@@ -21,3 +21,4 @@
 4. create decorator to print the time it took the method above to execute
 5. The most important thing is performance
 6. The symbols for the test will be AMZN, FB
+7. verify your data structures
